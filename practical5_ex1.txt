@@ -1,0 +1,120 @@
+class Link {
+    int studentId;
+    int marks;
+    Link next;
+
+    public Link(int id, int marks) {
+        this.studentId = id;
+        this.marks = marks;
+    }
+
+    public void displayLink() {
+        System.out.println("ID: " + studentId + ", Marks: " + marks);
+    }
+}
+
+class LinkedList {
+    private Link first;
+
+    public LinkedList() {
+        first = null;
+    }
+
+    public boolean isEmpty() {
+        return (first == null);
+    }
+
+    public void insertFirst(int id, int marks) {
+        Link newLink = new Link(id, marks);
+        newLink.next = first;
+        first = newLink;
+    }
+
+    public void insertAfter(int key, int id, int marks) {
+        Link current = first;
+        while (current != null && current.studentId != key) {
+            current = current.next;
+        }
+        if (current != null) {
+            Link newLink = new Link(id, marks);
+            newLink.next = current.next;
+            current.next = newLink;
+        }
+    }
+
+    public Link find(int key) {
+        Link current = first;
+        while (current != null && current.studentId != key) {
+            current = current.next;
+        }
+        return current;
+    }
+
+    public Link deleteFirst() {
+        if (isEmpty())
+            return null;
+        Link temp = first;
+        first = first.next;
+        return temp;
+    }
+
+    public Link delete(int key) {
+        if (isEmpty()) return null;
+
+        if (first.studentId == key) {
+            return deleteFirst();
+        }
+
+        Link current = first;
+        Link previous = null;
+        while (current != null && current.studentId != key) {
+            previous = current;
+            current = current.next;
+        }
+
+        if (current != null) {
+            previous.next = current.next;
+            return current;
+        }
+
+        return null;
+    }
+
+    public void displayList() {
+        Link current = first;
+        while (current != null) {
+            current.displayLink();
+            current = current.next;
+        }
+    }
+}
+class LinkedListTest {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.insertFirst(101, 85);
+        list.insertFirst(102, 90);
+        list.insertFirst(103, 75);
+
+        System.out.println("Initial List:");
+        list.displayList();
+
+        System.out.println("\nAfter inserting 104 after 102:");
+        list.insertAfter(102, 104, 88);
+        list.displayList();
+
+        System.out.println("\nFinding student with ID 101:");
+        Link found = list.find(101);
+        if (found != null) found.displayLink();
+        else System.out.println("Student not found");
+
+        System.out.println("\nDeleting first student:");
+        list.deleteFirst();
+        list.displayList();
+
+        System.out.println("\nDeleting student with ID 102:");
+        list.delete(102);
+        list.displayList();
+    }
+}
+
