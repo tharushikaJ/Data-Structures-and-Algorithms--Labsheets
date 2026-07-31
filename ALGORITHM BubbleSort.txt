@@ -1,0 +1,16 @@
+ALGORITHM BubbleSort(array)
+	n= length of array;
+	for i=0 to n-1
+		swapped= false
+
+		for j=0 to n-i-1
+			if array[j]> array[j+1]
+			   swap array[j] and array[j+1]
+			end if
+		endfor
+
+		if swapped is false
+			break
+		endif
+	endfor
+end Algorithm
