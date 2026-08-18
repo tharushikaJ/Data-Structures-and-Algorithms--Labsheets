@@ -9,7 +9,7 @@ class StackArray {
     public StackArray(int size) {
         this.maxSize = size;
         this.stackArray = new int[maxSize];
-        this.top = -1;
+        this.top = -1; 
     }
 
     // Push method
