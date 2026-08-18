@@ -28,7 +28,7 @@ class StackArray {
             int popped = stackArray[top--];
             System.out.println("Popped: " + popped);
             return popped;
-        } else {
+        } else { 
             System.out.println("Error: Stack is empty! Cannot pop.");
             return -1;
         }
