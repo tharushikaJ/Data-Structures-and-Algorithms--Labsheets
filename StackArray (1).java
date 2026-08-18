@@ -13,7 +13,7 @@ class StackArray {
     }
 
     // Push method
-    public void push(int item) {
+    public void push(int item) { 
         if (!isFull()) {
             stackArray[++top] = item;
             System.out.println("Pushed: " + item);
