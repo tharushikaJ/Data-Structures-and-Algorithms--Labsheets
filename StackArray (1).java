@@ -24,7 +24,7 @@ class StackArray {
 
     // Pop method
     public int pop() {
-        if (!isEmpty()) {
+        if (!isEmpty()) { 
             int popped = stackArray[top--];
             System.out.println("Popped: " + popped);
             return popped;
