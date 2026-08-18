@@ -11,7 +11,7 @@ class StackArray {
         this.stackArray = new int[maxSize];
         this.top = -1; 
     }
-
+ 
     // Push method
     public void push(int item) { 
         if (!isFull()) {
